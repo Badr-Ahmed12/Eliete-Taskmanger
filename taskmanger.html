@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteTask Ultimate | Todo, Notes, Pomo, Timer & Calendar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="asset/image/logo.png" type="png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/taskmanger.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo"><i class="fa-solid fa-bolt-lightning"></i> <span>EliteTask</span></div>
+        <ul class="nav-links">
+            <li><a onclick="showSection('todoSection')" id="link-todo" class="active"><i class="fa-solid fa-list-check"></i> <span>Tasks</span></a></li>
+            <li><a onclick="showSection('notesSection')" id="link-notes"><i class="fa-solid fa-note-sticky"></i> <span>Notes</span></a></li>
+            <li><a onclick="showSection('pomoSection')" id="link-pomo"><i class="fa-solid fa-apple-whole"></i> <span>Pomodoro</span></a></li>
+            <li><a onclick="showSection('timerSection')" id="link-timer"><i class="fa-solid fa-clock"></i> <span>Timer</span></a></li>
+            <li><a onclick="showSection('calendarSection')" id="link-calendar"><i class="fa-solid fa-calendar-alt"></i> <span>Calendar</span></a></li>
+        </ul>
+        <div id="liveTime" style="margin-top: auto; font-size: 0.8rem; font-weight: 700; color: var(--primary);"></div>
+    </div>
+
+    <main class="main-content">
+        
+        <section id="todoSection" class="active">
+            <div class="card">
+                <h2>Tasks Manager</h2>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input type="text" id="taskInput" placeholder="Add a task..." style="flex:1;">
+                    <button class="btn-primary" onclick="addTask()">Add</button>
+                    <button class="btn-primary" onclick="clearTasks()" style="background: red; color: var(--white);">Clear All</button>
+                </div>
+                <div id="taskList"></div>
+            </div>
+        </section>
+
+        <section id="notesSection">
+            <div class="card">
+                <h2>Quick Notes</h2>
+                <textarea id="noteInput" rows="4" placeholder="Write your thoughts..." style="width:100%; margin-bottom: 10px;"></textarea>
+                <button class="btn-primary" onclick="addNote()">Save Note</button>
+            </div>
+            <div id="notesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px;"></div>
+        </section>
+
+        <section id="pomoSection">
+            <div class="card">
+                <h2>Focus Timer (Pomodoro)</h2>
+                <div class="modes-container">
+                    <button class="mode-btn active" onclick="setPomoMode(25, this)">Work</button>
+                    <button class="mode-btn" onclick="setPomoMode(5, this)">Short Break</button>
+                    <button class="mode-btn" onclick="setPomoMode(15, this)">Long Break</button>
+                </div>
+                <div class="timer-display" id="pomoDisplay">25:00</div>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <button class="btn-primary" id="pomoStartBtn" onclick="togglePomo()">Start Focus</button>
+                    <button class="btn-primary" style="background:#f1f5f9; color:#333;" onclick="resetPomo()">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="timerSection">
+            <div class="card">
+                <h2>Custom Countdown</h2>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                    <input type="number" id="customMin" value="10" style="width: 80px; text-align: center;"> <span>Min</span>
+                </div>
+                <div class="timer-display" id="customTimerDisplay">10:00</div>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <button class="btn-primary" id="customTimerBtn" onclick="toggleCustomTimer()">Start Timer</button>
+                    <button class="btn-primary" style="background:#f1f5f9; color:#333;" onclick="resetCustomTimer()">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="calendarSection">
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <button class="btn-primary" onclick="moveMonth(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <h2 id="monthLabel" style="margin:0;">Month Year</h2>
+                    <button class="btn-primary" onclick="moveMonth(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/taskmanger.js"></script>
+</body>
+</html>

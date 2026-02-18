@@ -1,0 +1,121 @@
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --bg-light: #f8fafc;
+    --bg-dark: #0f172a;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s ease; /* سرعة استجابة احترافية */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body {
+    background-color: var(--bg-light); /* خلفية هادية بدل الأبيض الصريح */
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+/* Form Card */
+.signup-card { 
+    width: 100%; 
+    max-width: 450px; /* العرض المثالي لكروت التسجيل */
+    padding: 2.5rem; 
+    background: var(--white); 
+    box-shadow: var(--shadow); 
+    border-radius: 16px; /* حواف أنعم */
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--bg-dark); }
+.subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; }
+
+/* Input Styles */
+.input-group { text-align: left; margin-bottom: 1.2rem; }
+.input-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-main); margin-bottom: 6px; }
+
+.input-group input { 
+    width: 100%; 
+    padding: 12px 14px; 
+    border: 1.5px solid var(--border-color); 
+    border-radius: 10px; 
+    outline: none; 
+    font-size: 1rem;
+    transition: var(--transition);
+    background: #fcfcfd;
+}
+
+.input-group input:focus { 
+    border-color: var(--primary); 
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1); /* تأثير توهج خفيف */
+}
+
+/* Button & Actions */
+.btn-primary {
+    width: 100%; 
+    padding: 14px; 
+    background-color: var(--primary); 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    font-weight: 600; 
+    font-size: 1rem;
+    cursor: pointer; 
+    margin: 1rem 0; 
+    transition: var(--transition);
+}
+
+.btn-primary:hover { 
+    background-color: var(--primary-hover); 
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Social Login Section */
+.divider { 
+    position: relative; 
+    margin: 2rem 0; 
+    border-bottom: 1px solid var(--border-color); 
+}
+.divider span { 
+    position: absolute; 
+    top: 50%; left: 50%; 
+    transform: translate(-50%, -50%); 
+    background: var(--white); 
+    padding: 0 15px; 
+    font-size: 0.75rem; 
+    color: var(--text-muted); 
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.social-btn { 
+    padding: 12px; 
+    background: white; 
+    border: 1.5px solid var(--border-color); 
+    border-radius: 10px; 
+    cursor: pointer; 
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-btn:hover { 
+    background: var(--bg-light); 
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+
+.footer-text { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); }
+.footer-text a { color: var(--primary); text-decoration: none; font-weight: 600; transition: var(--transition); }
+.footer-text a:hover { text-decoration: underline; }
